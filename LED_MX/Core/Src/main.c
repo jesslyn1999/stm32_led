@@ -94,6 +94,22 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, GPIO_PIN_RESET); // LED ON
+    HAL_Delay(500);
+  
+    HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, GPIO_PIN_SET);   // LED OFF
+    HAL_Delay(500);
+
+
+    // If you want the register-style version inside your current CubeMX project, use following instead:
+    /*
+    GPIOF->BSRR = (1U << (16 + 6)); // PF6 low = LED ON
+    HAL_Delay(500);
+  
+    GPIOF->BSRR = (1U << 6);        // PF6 high = LED OFF
+    HAL_Delay(500);
+    */
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
